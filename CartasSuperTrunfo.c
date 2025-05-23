@@ -1,18 +1,14 @@
 #include <stdio.h>
 
-// Desafio Super Trunfo - Países
-// Tema 1 - Cadastro das Cartas
-// Este código inicial serve como base para o desenvolvimento do sistema de cadastro de cartas de cidades.
-// Siga os comentários para implementar cada parte do desafio.
-//Teste larissa
-
 int main(){
-    printf("SuperTrunfo\n");
+ 
+
+printf("SuperTrunfo\n");
 
     char estado1[20];
     char codigo1[10];
     char nome1[30];
-    int populacao1;
+    unsigned int populacao1;
     float area1;
     float pib1;
     int turismo1;
@@ -20,7 +16,7 @@ int main(){
     char estado2[20];
     char codigo2[10];
     char nome2[30];
-    int populacao2;
+    unsigned int populacao2;
     float area2;
     float pib2;
     int turismo2;
@@ -71,13 +67,38 @@ int main(){
     printf("Quantos pontos turísticos á nesta cidade: ");
     scanf("%d", &turismo2);
 
-
+    //Densisade e Capta
 
     float divdens1 = populacao1 / area1;
     float percapta1 = pib1 / populacao1;
 
     float divdens2 = populacao2 / area2;
     float percapta2 = pib2 / populacao2;
+
+
+    //Inversao
+
+    float inversao1 = 1;
+    float inversao2 = 1;
+
+    float inv1 = 1 / divdens1;
+    float inv2 = 1 / divdens2;
+
+    //Soma de tudo
+
+    unsigned long int somasuperpoder1 = populacao1 + area1 + pib1 + turismo1 + inv1 + percapta1;
+    unsigned long int somasuperpoder2 = populacao2 + area2 + pib2 + turismo2 + inv2 + percapta2;
+
+    //Comparacao
+
+    int pp12 = populacao1 > populacao2;
+    int aa12 = area1 > area2;
+    int pib12 = pib1 > pib2;
+    int turis12 = turismo1 > turismo2;
+    int densi12 = inv1 > inv2;
+    int per12 = percapta1 > percapta2;
+    int super12 = somasuperpoder1 > somasuperpoder2;
+
 
     printf("Carta 1\n");
     printf("Estado: %s\n", estado1);
@@ -101,7 +122,17 @@ int main(){
     printf("Densidade Demografica: %f\n", divdens2);
     printf("PIB por capta: %f\n", percapta2);
 
+    printf("Resultado da batalha de cartas\n");
+    printf("O Estado %s tem mais populacao que o estado %s? %d\n", estado1, estado2, pp12);
+    printf("O Estado %s tem mais Área que o estado %s? %d\n", estado1, estado2, aa12);
+    printf("O Estado %s tem mais PIB que o estado %s? %d\n", estado1, estado2, pp12);
+    printf("O Estado %s tem mais Pontos Turisticos que o estado %s? %d\n", estado1, estado2, turis12);
+    printf("O Estado %s tem mais Densidade Demografica que o estado %s? %d\n", estado1, estado2, densi12);
+    printf("O Estado %s tem mais Pib por Capta que o estado %s? %d\n", estado1, estado2, per12);
+    printf("O superpoder de %s é maior que o de %s? %d\n", estado1, estado2, super12);
+
 
 
     return 0;
+
 }
